@@ -6,6 +6,7 @@ var template = [
         submenu: [
             {
                 label: 'm1-s1',
+                accelerator: 'alt+1',
                 click: () => {
                     var win = new BrowserWindow({
                         width: 100,
@@ -18,6 +19,7 @@ var template = [
             },
             {
                 label: 'm1-s2',
+                accelerator: 'alt+2',
                 click: () => {
                     var win = new BrowserWindow({
                         width: 200,
@@ -35,6 +37,7 @@ var template = [
         submenu: [
             {
                 label: 'm2-s1',
+                accelerator: 'alt+3',
                 click: () => {
                     var win = new BrowserWindow({
                         width: 300,
@@ -47,6 +50,7 @@ var template = [
             },
             {
                 label: 'm2-s2',
+                accelerator: 'alt+4',
                 click: () => {
                     var win = new BrowserWindow({
                         width: 400,
