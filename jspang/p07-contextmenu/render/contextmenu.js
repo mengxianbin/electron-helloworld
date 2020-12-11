@@ -1,27 +1,33 @@
 const { remote } = require('electron')
-const { Menu, BrowserWindow } = remote
+const { globalShortcut, Menu, BrowserWindow } = remote
+
+// https://stackoverflow.com/questions/40776653/electron-menu-accelerator-not-working
+
+var nw100 = () => {
+    var win = new BrowserWindow({
+        width: 100,
+        height: 100,
+    })
+    win.on('close', () => {
+        win = null
+    })
+}
+
+globalShortcut.register('w', nw100)
 
 var template = [
     {
         label: 'menu-1',
-        accelerator: 'a',
         submenu: [
             {
                 label: 'm1-s1',
-                accelerator: 'b',
+                accelerator: 'w',
                 click: () => {
-                    var win = new BrowserWindow({
-                        width: 100,
-                        height: 100,
-                    })
-                    win.on('close', () => {
-                        win = null
-                    })
+                    nw100()
                 }
             },
             {
                 label: 'm1-s2',
-                accelerator: 'c',
                 click: () => {
                     var win = new BrowserWindow({
                         width: 200,
@@ -36,11 +42,9 @@ var template = [
     },
     {
         label: 'menu-2',
-        accelerator: 'd',
         submenu: [
             {
                 label: 'm2-s1',
-                accelerator: 'e',
                 click: () => {
                     var win = new BrowserWindow({
                         width: 300,
@@ -53,7 +57,6 @@ var template = [
             },
             {
                 label: 'm2-s2',
-                accelerator: 'f',
                 click: () => {
                     var win = new BrowserWindow({
                         width: 400,
