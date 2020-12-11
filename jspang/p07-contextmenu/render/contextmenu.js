@@ -74,4 +74,7 @@ window.addEventListener('contextmenu', function (event) {
     menu.popup({
         window: remote.getCurrentWindow()
     })
+    menu.on('closed', () => {
+        menu = null
+    })
 })
