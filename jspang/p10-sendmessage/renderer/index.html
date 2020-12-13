@@ -8,15 +8,14 @@
 
 <label><font color='#ff8800'>Data:</font></label>
 <div id='dataContainer'></div>
-<script>
-    window.openDevTools()
-</script>
+
 <script>
     let popupButton = document.querySelector('#popupButton')
     popupButton.onclick = () => {
         window.open('popup.html')
     }
 </script>
+
 <script>
     window.addEventListener('message', (event) => {
         let jsonContainer = document.querySelector('#jsonContainer')

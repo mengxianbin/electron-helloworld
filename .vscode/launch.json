@@ -2,6 +2,9 @@
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+
+    // Extension: debugger-for-chrome
+
     "version": "0.2.0",
     "configurations": [
         {
@@ -13,15 +16,14 @@
                 "--remote-debugging-port=9222",
                 "."
             ],
-            "cwd": "${workspaceFolder}\\jspang\\p10-sendmessage",
-            "program": "${workspaceFolder}\\jspang\\p10-sendmessage\\main.js"
+            "cwd": "${workspaceFolder}"
         },
         {
             "name": "Renderer",
             "type": "chrome",
             "request": "attach",
             "port": 9222,
-            "webRoot": "${workspaceFolder}\\jspang\\p10-sendmessage\\renderer"
+            "webRoot": "${workspaceFolder}"
         }
     ],
     "compounds": [

@@ -1,10 +1,8 @@
-<button id='sendBtn'>Send Message</button>
+<button id='sendButton'>Send Message</button>
+
 <script>
-    window.webContents.openDevTools()
-</script>
-<script>
-    let sendBtn = document.querySelector('#sendBtn')
-    sendBtn.onclick = () => {
+    let sendButton = document.querySelector('#sendButton')
+    sendButton.onclick = () => {
         window.opener.postMessage('This is a message from a popup window.')
     }
 </script>
