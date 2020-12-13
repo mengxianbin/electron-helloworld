@@ -1,0 +1,12 @@
+<h1 id='text'>QWERTYUIOP</h1>
+<script>
+    const { clipboard } = require('electron')
+    const text = document.getElementById('text')
+
+    const ipcRenderer = require('electron').ipcRenderer;
+    ipcRenderer.on('copy', (event, arg) => {
+        console.log(JSON.stringify(event))
+        console.log(arg);
+        clipboard.writeText(text.innerHTML)
+    });
+</script>
