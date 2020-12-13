@@ -1,0 +1,36 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Main",
+            "runtimeExecutable": "${workspaceFolder}/dist/node_modules/.bin/electron",
+            "runtimeArgs": [
+                "--remote-debugging-port=9222",
+                "."
+            ],
+            "cwd": "${workspaceFolder}\\jspang\\p10-sendmessage",
+            "program": "${workspaceFolder}\\jspang\\p10-sendmessage\\main.js"
+        },
+        {
+            "name": "Renderer",
+            "type": "chrome",
+            "request": "attach",
+            "port": 9222,
+            "webRoot": "${workspaceFolder}\\jspang\\p10-sendmessage\\renderer"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "All",
+            "configurations": [
+                "Main",
+                "Renderer"
+            ]
+        }
+    ]
+}
