@@ -1,0 +1,16 @@
+<button id='messageButton'>Show MessageBox</button>
+
+<script>
+    const { dialog } = require('electron').remote
+    const messageButton = document.getElementById('messageButton')
+    messageButton.onclick = () => {
+        dialog.showMessageBox({
+            type: 'warning',
+            title: 'Warning',
+            message: 'Unknown warning',
+            buttons: ['1', '2']
+        }).then(result => {
+            alert(JSON.stringify(result))
+        })
+    }
+</script>
