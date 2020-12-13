@@ -1,0 +1,28 @@
+<button id='popupButton'>Popup</button>
+<br />
+<br />
+
+<label><font color='#ff0000'>Json:</font></label>
+<div id='jsonContainer'></div>
+<br />
+
+<label><font color='#ff8800'>Data:</font></label>
+<div id='dataContainer'></div>
+<script>
+    window.openDevTools()
+</script>
+<script>
+    let popupButton = document.querySelector('#popupButton')
+    popupButton.onclick = () => {
+        window.open('popup.html')
+    }
+</script>
+<script>
+    window.addEventListener('message', (event) => {
+        let jsonContainer = document.querySelector('#jsonContainer')
+        jsonContainer.innerHTML = JSON.stringify(event)
+
+        let dataContainer = document.querySelector('#dataContainer')
+        dataContainer.innerHTML = event.data
+    })
+</script>
