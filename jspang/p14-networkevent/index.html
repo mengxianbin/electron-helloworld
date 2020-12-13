@@ -1,0 +1,15 @@
+<script>
+    const { dialog } = require('electron').remote
+    window.addEventListener('online', event => {
+        dialog.showMessageBox({
+            title: 'online',
+            message: JSON.stringify(event)
+        })
+    })
+    window.addEventListener('offline', event => {
+        dialog.showMessageBox({
+            title: 'offline',
+            message: JSON.stringify(event)
+        })
+    })
+</script>
