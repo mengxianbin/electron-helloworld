@@ -1,0 +1,16 @@
+<button id='openBtn'>Open</button>
+
+<script>
+    const { dialog } = require('electron').remote
+    const openBtn = document.getElementById('openBtn')
+    openBtn.onclick = () => {
+        dialog.showOpenDialog({
+            title: "Open File",
+            defaultPath: 'index.html',
+            filters: [
+                { name: 'html files', extensions: ['html'] },
+                { name: 'other files', extensions: ['js', 'json'] }],
+            buttonLabel: 'Open Your File'
+        })
+    }
+</script>

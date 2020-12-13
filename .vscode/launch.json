@@ -11,7 +11,7 @@
             "type": "node",
             "request": "launch",
             "name": "Main",
-            "runtimeExecutable": "${workspaceFolder}/dist/node_modules/.bin/electron",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron", // npm install
             "runtimeArgs": [
                 "--remote-debugging-port=9222",
                 "."
