@@ -1,0 +1,23 @@
+{
+  "name": "p15-systemnotify",
+  "version": "1.0.0",
+  "description": "electron notification application",
+  "main": "main.js",
+  "scripts": {
+    "build": "electron-builder"
+  },
+  "keywords": [],
+  "author": "mengxianbin",
+  "license": "ISC",
+  "build": {
+    "appId": "electron-notify"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "11.0.4",
+    "electron-builder": "22.9.1"
+  },
+  "permissions": {
+    "desktop-notification": {}
+  }
+}
