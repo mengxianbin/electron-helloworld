@@ -1,16 +1,39 @@
-<button id='openBtn'>Open</button>
+<button id='openButton'>Open</button>
+<div id='container'></div>
 
 <script>
+    const fs = require('fs')
     const { dialog } = require('electron').remote
-    const openBtn = document.getElementById('openBtn')
-    openBtn.onclick = () => {
+    const openButton = document.getElementById('openButton')
+    const container = document.getElementById('container')
+    openButton.onclick = () => {
         dialog.showOpenDialog({
             title: "Open File",
             defaultPath: 'index.html',
             filters: [
-                { name: 'html files', extensions: ['html'] },
-                { name: 'other files', extensions: ['js', 'json'] }],
+                { name: 'all', extensions: ['*'] },
+                { name: 'code', extensions: ['js', 'json'], },
+                { name: 'html', extensions: ['html'] },
+                { name: 'image', extensions: ['png'], },
+            ],
             buttonLabel: 'Open Your File'
+        }).then(result => {
+            if (result.canceled) {
+                return
+            }
+
+            container.innerHTML = ''
+
+            path = result.filePaths[0]
+            if (path.endsWith('.png')) {
+                img = document.createElement('img')
+                img.setAttribute('src', path)
+                container.appendChild(img)
+            } else {
+                container.innerHTML = fs.readFileSync(path).toString()
+            }
+        }).catch(error => {
+            alert(error)
         })
     }
 </script>
