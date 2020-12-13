@@ -1,0 +1,19 @@
+<button id='saveButton'>Save</button>
+
+<script>
+    const fs = require('fs')
+    const { dialog } = require('electron').remote
+    const saveButton = document.getElementById('saveButton')
+    saveButton.onclick = () => {
+        dialog.showSaveDialog({
+            defaultPath: 'untitled'
+        }).then(result => {
+            if (!result.canceled) {
+                fs.writeFileSync(result.filePath, 'https://mengxianbin.github.io')
+            }
+        }).catch(err => {
+            console.error(err)
+            alert(err)
+        })
+    }
+</script>
